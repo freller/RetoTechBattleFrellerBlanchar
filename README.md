@@ -32,7 +32,7 @@ PostgreSQL Connection URL: La URL de conexión a la base de datos PostgreSQL, en
 Una vez ingresados los datos, presiona el botón "Actualizar Datos" para descargar los archivos Parquet de Azure y subir los datos a PostgreSQL.
 
 Paso 5: crear la relacion entre las tablas si estas no existen.
-crear la relaciond de llave PK Y FK
+crear la relacion de llave PK Y FK
 - ALTER TABLE "Jobs" ADD CONSTRAINT "pk_jobs" PRIMARY KEY ("job-id");
 - ALTER TABLE "Job_Applications" ADD CONSTRAINT fk_job_applications_job_id FOREIGN KEY ("job-id") REFERENCES "Jobs"("job-id");
 
