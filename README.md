@@ -34,6 +34,7 @@ Una vez ingresados los datos, presiona el botón "Actualizar Datos" para descarg
 Paso 5: crear la relacion entre las tablas si estas no existen PK Y FK.
 - ALTER TABLE "Jobs" ADD CONSTRAINT "pk_jobs" PRIMARY KEY ("job-id");
 - ALTER TABLE "Job_Applications" ADD CONSTRAINT fk_job_applications_job_id FOREIGN KEY ("job-id") REFERENCES "Jobs"("job-id");
+al abrir el archivo de Power Bi automaticamente toma la relacion por lo que ya esta predeterminado.
 
 Paso 6: visualizacion
 abrir el archivo de visualizacion (Seleccion de Candidatos.pbix) y hacer las respectivas conexion con la base de datos PostgresSQL
