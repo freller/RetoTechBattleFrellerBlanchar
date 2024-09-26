@@ -3,6 +3,7 @@ Proyecto Gobierno de datos y analitica
 Requisitos
 - Python instalado.
 - Acceso a una base de datos PostgreSQL.
+- Power Bi instalado.
 
 Dependencias
 Las dependencias necesarias están listadas en el archivo `requirements.txt` Estas incluyen:
