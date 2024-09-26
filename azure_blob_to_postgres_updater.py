@@ -66,6 +66,13 @@ def actualizar_datos():
     last_update_time.set(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     messagebox.showinfo("Actualización Completa", "Los datos se han actualizado correctamente.")
 
+def abrir_power_bi():
+
+    if os.path.exists(pbix_file_path):
+        os.startfile(pbix_file_path)
+    else:
+        messagebox.showerror("Error", f"El archivo '{pbix_file_path}' Power Bi no existe.")
+
 root = tk.Tk()
 root.title("Actualizador de Datos")
 
@@ -79,7 +86,7 @@ bg_label = tk.Label(root, image=bg_photo)
 bg_label.place(relwidth=1, relheight=1)
 
 azure_frame = tk.Frame(root, bg='white', bd=5)
-azure_frame.place(relx=0.5, rely=0.20, relwidth=0.75, relheight=0.25, anchor='n')
+azure_frame.place(relx=0.5, rely=0.20, relwidth=0.70, relheight=0.25, anchor='n')
 
 tk.Label(azure_frame, text="Azure Account URL:").grid(row=0, column=0, sticky='w')
 azure_account_entry = tk.Entry(azure_frame)
@@ -94,18 +101,21 @@ azure_sas_token_entry = tk.Entry(azure_frame)
 azure_sas_token_entry.grid(row=2, column=1)
 
 postgres_frame = tk.Frame(root, bg='white', bd=5)
-postgres_frame.place(relx=0.5, rely=0.45, relwidth=0.75, relheight=0.15, anchor='n')
+postgres_frame.place(relx=0.5, rely=0.35, relwidth=0.70, relheight=0.07, anchor='n')
 
 tk.Label(postgres_frame, text="PostgreSQL Conexion URL:").grid(row=0, column=0, sticky='w')
 postgres_entry = tk.Entry(postgres_frame)
 postgres_entry.grid(row=0, column=1)
 
 update_button = tk.Button(root, text="Actualizar Datos", command=actualizar_datos, font=("Helvetica", 16))
-update_button.place(relx=0.5, rely=0.75, anchor='n')
+update_button.place(relx=0.5, rely=0.47, anchor='n')
+
+open_pbix_button = tk.Button(root, text="Abrir visualizacion", command=abrir_power_bi, font=("Helvetica", 12))
+open_pbix_button.place(relx=0.5, rely=0.75, anchor='n')
 
 last_update_time = tk.StringVar()
-tk.Label(root, text="Última actualización:", font=("Helvetica", 12)).place(relx=0.5, rely=0.85, anchor='n')
-tk.Label(root, textvariable=last_update_time, font=("Helvetica", 12)).place(relx=0.5, rely=0.9, anchor='n')														
+tk.Label(root, text="Última actualización:", font=("Helvetica", 12)).place(relx=0.5, rely=0.56, anchor='n')
+tk.Label(root, textvariable=last_update_time, font=("Helvetica", 12)).place(relx=0.5, rely=0.60, anchor='n')														
 
-# Iniciar la aplicación
 root.mainloop()
+
