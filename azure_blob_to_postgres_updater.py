@@ -10,6 +10,7 @@ from datetime import datetime
 
 parquet_directory = os.path.join(os.path.dirname(__file__), 'Downloads')
 
+pbix_file_path = os.path.join(os.path.dirname(__file__), 'Visualizacion', 'Seleccion de Candidatos.pbix')
 
 def get_psycopg2_connection(postgres_url):
     return psycopg2.connect(postgres_url)
